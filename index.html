@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parcial Bernardo</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" defer></script>
+    <script src="./Hobby.js" defer></script>
+    <script src="./Tour.js" defer></script>
+    <script src="./app.js" defer></script>
+</head>
+    <body>
+        <div id="app" class = "container">
+            <h1 align = "center">{{message}}</h1>
+            <hobby v-if="showHobbies"v-for="hob in hobbies"
+                v-bind:h="hob" 
+                v-bind:n="name"
+            >
+            
+            </hobby>
+            <br>
+            <div align = "center" class = "row">
+                <div  class = "col-12">
+                <button  class = "btn btn-primary" 
+                    v-on:click='showHobbies=!showHobbies'>Hide or Show hobbies</button>
+                </div>
+                <div class = "row" align = "center">
+                    <div class = "col-12">
+                        <label for="Change Name">Change the name</label>
+                        <input type="text" v-model="name">
+                    </div>
+                </div>
+            </div>
+
+            <h1 align = "center">{{secondMessage}}</h1>
+            <tour 
+                v-if="showPlaces"
+                v-for="p in places"
+                    v-bind:p="p" 
+                    v-bind:s="secondName"
+            >
+            </tour>
+            <br>
+            <div align = "center" class = "row">
+                <div  class = "col-12">
+                <button  class = "btn btn-primary" 
+                    v-on:click='showPlaces=!showPlaces'>Hide or Show Places I want to visit</button>
+                </div>
+                <div class = "row" align = "center">
+                    <div class = "col-12">
+                        <label for="Change Name">Change the name</label>
+                        <input type="text" v-model="secondName">
+                    </div>
+                </div>
+
+        </div>
+    </body>
+</html>
